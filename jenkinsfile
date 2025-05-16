@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    environment {
+        // 设定环境变量
+        REGISTRY = 'docker.io'
+        IMAGE_NAME = 'shixun08/tomatoclock:Jpipeline'
+        DOCKER_CREDENTIALS_ID = '1a6a0d7e-e8ce-46b7-8634-dd1f665ccfbc' // 在 Jenkins 中配置的 Docker 凭据 ID
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // 从 Git 拉取代码
+                git branch: 'master', url: 'https://gitee.com/wang-jiachen0724/time-drop-time-tomato-clock.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    dir('tomatoclock_source') {
+                        // 使用 Docker build 构建镜像
+                        docker.build("${REGISTRY}/${IMAGE_NAME}:${env.BUILD_ID}")
+                    }
+                }
+            }
+        }
+
+        stage('Push') {
+            steps {
+                script {
+                    // 登录 Docker registry
+                    docker.withRegistry("https://${REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
+                       dir('tomatoclock_source') {
+                            // 推送镜像到 registry
+                            docker.image("${REGISTRY}/${IMAGE_NAME}:${env.BUILD_ID}").push()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // 清理 Docker 环境，删除构建的镜像
+            script {
+               dir('tomatoclock_source') {
+                    docker.image("${REGISTRY}/${IMAGE_NAME}:${env.BUILD_ID}").remove()
+            }
+        }
+    }
+}

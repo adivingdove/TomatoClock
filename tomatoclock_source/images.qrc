@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>photos/cross.png</file>
+        <file>photos/setting.png</file>
+        <file>photos/OIP-C.jpg</file>
+        <file>photos/reset.png</file>
+        <file>music/forest.wav</file>
+        <file>music/rain.wav</file>
+        <file>photos/minimize.png</file>
+        <file>photos/mute.png</file>
+        <file>photos/speaker.png</file>
+        <file>photos/list.png</file>
+        <file>photos/tomato.png</file>
+        <file>photos/positivetiming.png</file>
+        <file>photos/background0.png</file>
+        <file>photos/background.jpeg</file>
+        <file>font/shangshoujianghushufati.ttf</file>
+        <file>font/shangshouxianyunti.ttf</file>
+        <file>photos/bg.jpeg</file>
+        <file>photos/bg2.png</file>
+        <file>photos/bg3.jpeg</file>
+        <file>photos/forest.png</file>
+        <file>photos/rain.png</file>
+        <file>photos/file.png</file>
+        <file>photos/backgreen.jpeg</file>
+        <file>photos/OIP-C2.jpg</file>
+        <file>photos/star.jpeg</file>
+        <file>photos/01.png</file>
+        <file>photos/02.png</file>
+        <file>photos/03.png</file>
+        <file>photos/04.png</file>
+        <file>photos/05.png</file>
+        <file>photos/001.png</file>
+        <file>photos/002.png</file>
+        <file>photos/003.png</file>
+        <file>photos/004.png</file>
+        <file>photos/005.png</file>
+        <file>photos/bg000.jpeg</file>
+        <file>photos/bg001.jpeg</file>
+    </qresource>
+</RCC>
